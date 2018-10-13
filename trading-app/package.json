@@ -1,0 +1,18 @@
+{
+  "name": "trading-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "truffle": "^4.1.14",
+    "web3-js": "^1.0.5-beta.26"
+  }
+}
