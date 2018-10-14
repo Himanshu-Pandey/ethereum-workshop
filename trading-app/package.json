@@ -12,7 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "http-server": "^0.11.1",
+    "require": "^2.4.20",
     "truffle": "^4.1.14",
+    "web3": "github:ethereum/web3.js",
     "web3-js": "^1.0.5-beta.26"
   }
 }
