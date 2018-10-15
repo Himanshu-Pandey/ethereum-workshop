@@ -8,7 +8,7 @@ contract Trade {
   uint UNIT_COUNT = 10;
 
   //initial seeding of balances and items
-  constructor(){
+  constructor() public{
     accountBalance["BOB"]=UNIT_PRICE*UNIT_COUNT;
     accountBalance["ALICE"]=UNIT_PRICE*UNIT_COUNT;
 
