@@ -2,14 +2,14 @@ pragma solidity ^0.4.22;
 
 contract Vote {
 
-  mapping (string => uint) someMapping;
+  mapping (string => uint) votesMap;
 
   function vote(string candidate) public {
-    someMapping[candidate]=someMapping[candidate]+1;
+    votesMap[candidate]++;
   }
 
   function getVoteFor(string candidate) public view returns (uint) {
-    return someMapping[candidate];
+    return votesMap[candidate];
   }
 
 }
