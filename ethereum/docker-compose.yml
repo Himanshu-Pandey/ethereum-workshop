@@ -1,0 +1,37 @@
+version: '2.1'
+networks:
+  ethereum_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.19.0.0/16
+services:
+  ethereum_1:
+    build:
+      context: ./node
+      dockerfile: Dockerfile
+    ports:
+      - 22001:22000
+    environment:
+      - NODEKEY=1aaac40669bbe56a793cf10a0ac81be65fb0ce328b0c13a0f911f278df014a92
+      - ACCOUNTKEY=d55ae7c247804428ca98ed524764d7b3f8f009c4147faac06b97033ecc1b986b
+    volumes:
+      - ./data/nodes.json:/root/.ethereum/static-nodes.json
+    networks:
+      ethereum_net:
+        ipv4_address: '172.19.1.1'
+  ethereum_2:
+    build:
+      context: ./node
+      dockerfile: Dockerfile
+    ports:
+      - 22002:22000
+    volumes:
+      - ./data/nodes.json:/root/.ethereum/static-nodes.json
+    environment:
+      - NODEKEY=dae4fb95513713d0f60e588851ca8f5c5d82688c1c7d67f32e8bfedddb118b74
+      - ACCOUNTKEY=a7fe22c79e5daff4bee7aaec6952ceb82c6c7b82a8beba6d64f1ff3992434278
+    networks:
+      ethereum_net:
+        ipv4_address: '172.19.1.2'

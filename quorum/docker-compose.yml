@@ -8,7 +8,7 @@ networks:
       - subnet: 172.14.0.0/16
 services:
   node_1:
-    build: ./quorum/
+    build: ./node
     networks:
       node_net:
         ipv4_address: '172.14.1.2'
@@ -23,7 +23,7 @@ services:
     ports:
       - 22001:22000
   node_2:
-    build: ./quorum/
+    build: ./node
     networks:
       node_net:
         ipv4_address: '172.14.2.2'
@@ -40,7 +40,7 @@ services:
     ports:
       - 22002:22000
   node_3:
-    build: ./quorum/
+    build: ./node
     networks:
       node_net:
         ipv4_address: '172.14.3.2'
@@ -57,7 +57,7 @@ services:
     ports:
       - 22003:22000
   node_4:
-    build: ./quorum/
+    build: ./node
     networks:
       node_net:
         ipv4_address: '172.14.4.2'
