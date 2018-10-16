@@ -35,3 +35,6 @@ services:
     networks:
       ethereum_net:
         ipv4_address: '172.19.1.2'
+
+#NODEKEY=81ec2d235cc6bf873d33a440fbf3d79049a1a99b30455e452c06366f324d762c
+#ACCOUNTKEY=0d5c80d1a5e10406842a67882f203062efed21da53a69fd6dfce66d452b83703
