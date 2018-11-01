@@ -9,7 +9,7 @@ function init(){
   let contracts = JSON.parse(source);
   abi = contracts.abi;
   byteCode = contracts.bytecode;
-  web3.setProvider(new web3.providers.HttpProvider('http://localhost:22001'));
+  web3.setProvider(new web3.providers.HttpProvider('http://10.133.124.145:22001'));
 }
 
 async function unlockFirstAccount(web3) {
