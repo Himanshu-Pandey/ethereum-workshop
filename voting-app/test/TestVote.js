@@ -6,5 +6,11 @@ contract('Vote',function(){
     var voteContract = await Vote.new();
     assert.notEqual(voteContract.address,"");
   });
-  
+
+  it('Vote should be added',async function(){
+    var voteContract = Vote.new();
+    var transactionReceipt = await voteContract.castVote("A");
+    assert.notEqual(transactionReceipt.tx,"");
+  });
+
 });
