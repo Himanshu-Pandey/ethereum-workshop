@@ -13,3 +13,15 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
 }
+
+.App-content{
+  padding: 3%;
+}
+
+.App-content input{
+  margin: auto 15px auto 15px;
+}
+
+.block{
+  border: 2px dotted;
+}

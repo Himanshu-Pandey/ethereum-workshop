@@ -33,7 +33,7 @@ export default class NumberContractService {
         });
     }
 
-    getLastBlockUpdatedBy(){
-        return this.web3.eth.getTransactionFromBlock('latest').from;
+    getLastBlock(){
+        return this.web3.eth.getTransactionFromBlock('latest');
     }
 }
