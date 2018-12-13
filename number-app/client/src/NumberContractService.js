@@ -19,7 +19,6 @@ export default class NumberContractService {
     }
 
     loadContract(address){
-        this.contract = {};
         this.contract = new this.web3.eth.Contract(abi,address);
     }
 
@@ -28,8 +27,9 @@ export default class NumberContractService {
     }
 
     async setNumber(num) {
+        var accounts = await this.web3.eth.getAccounts();
         await this.contract.methods.setNumber(num).send({
-            from: '0x193a461d2Dae8B7d2674a8A406212fe08A420887',
+            from: accounts[1],
             gas: this.gas
         });
     }
