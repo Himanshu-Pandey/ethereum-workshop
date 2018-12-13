@@ -1,5 +1,5 @@
 import abi from './NumberContractABI.json';
-import Web3 from 'web3-quorum';
+import Web3 from 'web3';
 
 export default class NumberContractService {
 
@@ -19,21 +19,22 @@ export default class NumberContractService {
     }
 
     loadContract(address){
-        this.contract = this.web3.eth.contract(abi).at(address);
+        this.contract = {};
+        this.contract = new this.web3.eth.Contract(abi,address);
     }
 
-    getNumber() {
-        return this.contract.getNumber().toNumber();
+    async getNumber() {
+        return await this.contract.methods.getNumber().call();
     }
 
-    setNumber(id) {
-        this.contract.setNumber(id,{
-            from: this.web3.eth.accounts[0],
+    async setNumber(num) {
+        await this.contract.methods.setNumber(num).send({
+            from: '0x193a461d2Dae8B7d2674a8A406212fe08A420887',
             gas: this.gas
         });
     }
 
-    getLastBlock(){
-        return this.web3.eth.getTransactionFromBlock('latest');
+    async getLastBlock(){
+        return await this.web3.eth.getTransactionFromBlock('latest');
     }
 }

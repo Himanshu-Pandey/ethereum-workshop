@@ -6,19 +6,27 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    let number = NumnerContractService.getInstance();
-    this.state = { value: number.getNumber() || 0, lastBlock: number.getLastBlock() };
+    this.state = { value: 0, lastBlock: {from: ''} };
     this.updateNumber = this.updateNumber.bind(this);
   }
 
-  updateNumber = function () {
-    let number = NumnerContractService.getInstance();
-    number.setNumber(this.textInput.value);
+  async componentDidMount(){
+    await this.updateState();
+  }
 
-    this.setState(({
-      value: number.getNumber(),
-      lastBlock: number.getLastBlock()
-    }));
+  updateNumber = async function () {
+    let number = NumnerContractService.getInstance();
+    await number.setNumber(this.textInput.value);
+    await this.updateState();
+  }
+
+  updateState = async function(){
+    let number = NumnerContractService.getInstance();
+    
+    this.setState({
+      value: await number.getNumber(),
+      lastBlock: await number.getLastBlock()
+    });
   }
 
   render() {
