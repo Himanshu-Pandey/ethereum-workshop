@@ -19,19 +19,13 @@ export default class NumberContractService {
     }
 
     loadContract(address){
-        this.contract = new this.web3.eth.Contract(abi,address);
     }
 
     async getNumber() {
-        return await this.contract.methods.get().call();
     }
 
     async setNumber(num) {
         var accounts = await this.web3.eth.getAccounts();
-        await this.contract.methods.set(num).send({
-            from: accounts[0],
-            gas: this.gas
-        });
     }
 
     async getLastBlock(){
