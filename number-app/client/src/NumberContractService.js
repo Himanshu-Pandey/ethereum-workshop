@@ -8,7 +8,7 @@ export default class NumberContractService {
     constructor(){
         this.web3 = new Web3(new Web3.providers.HttpProvider('http://127.0.0.1:7545'));
         this.gas = 0x47b760;
-        this.loadContract('0xa54d39f03940bd6522d7ad3c6aa9c44a81f31247');
+        this.loadContract('0xef0765122204df76b45ef197deac9b58701ea2cb');
     }
 
     static getInstance() {
@@ -23,13 +23,13 @@ export default class NumberContractService {
     }
 
     async getNumber() {
-        return await this.contract.methods.getNumber().call();
+        return await this.contract.methods.get().call();
     }
 
     async setNumber(num) {
         var accounts = await this.web3.eth.getAccounts();
-        await this.contract.methods.setNumber(num).send({
-            from: accounts[1],
+        await this.contract.methods.set(num).send({
+            from: accounts[0],
             gas: this.gas
         });
     }
