@@ -7,7 +7,6 @@ export default class NumberContractService {
 
     constructor(){
         this.web3 = new Web3(new Web3.providers.HttpProvider('http://127.0.0.1:7545'));
-        this.gas = 0x47b760;
         this.loadContract('0xef0765122204df76b45ef197deac9b58701ea2cb');
     }
 
